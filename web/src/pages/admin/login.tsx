@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import {login} from '@/api/login'
 
 import { useConstantContext } from '../../context/ConstantContext'
 
@@ -36,7 +37,7 @@ export function Login() {
 
   async function handleLogin(data: LoginForm) {
     try {
-      console.log(data)
+      await authenticate({ username: data.username, password: data.password})
     } catch (error) {
       console.log(error)
     }
